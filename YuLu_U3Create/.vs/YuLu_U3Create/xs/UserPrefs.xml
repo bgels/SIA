@@ -1,0 +1,18 @@
+﻿<Properties StartupConfiguration="{1C11542E-23A4-0CA1-E262-21393C4E49BE}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scrip.cs">
+    <Files>
+      <File FileName="Assets/bulletscript1.cs" Line="12" Column="34" />
+      <File FileName="Assets/movement.cs" Line="29" Column="6" />
+      <File FileName="Assets/bulletMovement1.cs" Line="31" Column="10" />
+      <File FileName="Assets/movementP2.cs" Line="8" Column="23" />
+      <File FileName="Assets/scrip.cs" Line="31" Column="10" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="7ad06b51-defd-4741-a480-8bd06f2973dc" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
