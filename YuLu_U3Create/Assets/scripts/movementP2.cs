@@ -22,7 +22,7 @@ public class movementP2 : MonoBehaviour
     void Start()
     {
         hp = 3;
-        jumpForce = new Vector2(0, 250);
+        jumpForce = new Vector2(0, 300);
         leftForce = new Vector2(-2f, 0);
         rightForce = new Vector2(2f, 0);
     }
@@ -35,12 +35,12 @@ public class movementP2 : MonoBehaviour
         if (direction.x < 0)
         {
             facing = -1;
-            rb.AddForce(leftForce);
+            rb.AddForce(leftForce - rb.velocity/3);
         }
         else if (direction.x > 0)
         {
             facing = 1;
-            rb.AddForce(rightForce);
+            rb.AddForce(rightForce - rb.velocity / 3);
         }
         if (Input.GetKeyDown(KeyCode.UpArrow) && canJump)
         {
@@ -50,6 +50,10 @@ public class movementP2 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightShift))
         {
             Instantiate(bullet, GetComponent<Transform>().position, Quaternion.identity);
+        }
+        if (gameObject.GetComponent<Transform>().position.y <= 5)
+        {
+            print("p1 win");
         }
 
     }

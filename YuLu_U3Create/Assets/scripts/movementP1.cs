@@ -5,7 +5,7 @@ using UnityEngine;
 public class movementP1 : MonoBehaviour
 {
     [SerializeField] float speed;
-     public int facing;
+    public int facing;
     [SerializeField] Vector2 direction;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] bool canJump;
@@ -16,14 +16,13 @@ public class movementP1 : MonoBehaviour
     [SerializeField] Vector2 rightForce;
 
     [SerializeField] GameObject bullet;
-
     public int hp;
 
     // Start is called before the first frame update
     void Start()
     {
         hp = 3;
-        jumpForce = new Vector2(0, 250);
+        jumpForce = new Vector2(0, 300);
         leftForce = new Vector2(-2f, 0);
         rightForce = new Vector2(2f, 0);
     }
@@ -33,34 +32,39 @@ public class movementP1 : MonoBehaviour
     {
         direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
 
-        if(direction.x < 0)
+        if (direction.x < 0)
         {
             facing = -1;
-            rb.AddForce(leftForce);
+            rb.AddForce(leftForce - rb.velocity / 3);
         }
-        else if(direction.x > 0)
+        else if (direction.x > 0)
         {
             facing = 1;
-            rb.AddForce(rightForce);
+            rb.AddForce(rightForce - rb.velocity / 3);
         }
-        if(Input.GetKeyDown(KeyCode.W) && canJump)
+        if (Input.GetKeyDown(KeyCode.W) && canJump)
         {
             rb.AddForce(jumpForce);
             canJump = false;
         }
-        if (Input.GetKeyDown(KeyCode.Q)){
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
             Instantiate(bullet, GetComponent<Transform>().position, Quaternion.identity);
-
         }
-        
+
+        if(gameObject.GetComponent<Transform>().position.y <= 5)
+        {
+            print("p2 win");
+        }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "platform")
         {
-            
             canJump = true;
         }
+
     }
 }
